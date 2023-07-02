@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "tall-flower-pots",
+  "version": "${version}",
+  "name": "Tall Flower Pots",
+  "description": "This simple mod lets you plant tall flowers in decorated pots.",
+  "authors": [
+    "PinkGoosik"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/tall-flower-pots",
+    "sources": "https://github.com/PinkGoosik/tall-flower-pots",
+    "issues": "https://github.com/PinkGoosik/tall-flower-pots/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/tall-flower-pots/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "tallflowerpots.Mod"
+    ]
+  },
+  "mixins": [
+    "tall-flower-pots.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "minecraft": ">=1.20",
+    "java": ">=17"
+  }
+}

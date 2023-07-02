@@ -1,2 +1,2 @@
-# tall-flower-pots
-This simple mod lets you plant tall flowers in decorated pots.
+## About
+This simple mod lets you plant tall flowers in decorated pots. Usage: place any tall flower like sunflower or pitcher plant on top of the decorated pot. Can be used completely server-sided, but client side is recommended for correct display.
