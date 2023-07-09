@@ -8,18 +8,11 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(PlantBlock.class)
-public abstract class PlantBlockMixin extends Block {
-
-	public PlantBlockMixin(Settings settings) {
-		super(settings);
-	}
+@Mixin(SmallDripleafBlock.class)
+public abstract class SmallDripleafMixin {
 
 	@Inject(method = "canPlantOnTop", at = @At("HEAD"), cancellable = true)
 	void canPlantOnTop(BlockState floor, BlockView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-		var block = PlantBlock.class.cast(this);
-		if(block instanceof TallPlantBlock || block.equals(Blocks.PITCHER_PLANT) || block instanceof SweetBerryBushBlock) {
-			if(floor.getBlock() instanceof DecoratedPotBlock) cir.setReturnValue(true);
-		}
+		if(floor.getBlock() instanceof DecoratedPotBlock) cir.setReturnValue(true);
 	}
 }

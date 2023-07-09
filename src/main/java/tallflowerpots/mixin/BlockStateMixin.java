@@ -19,8 +19,21 @@ public abstract class BlockStateMixin {
 	@Inject(method = "getModelOffset", at = @At("HEAD"), cancellable = true)
 	void getModelOffset(BlockView world, BlockPos pos, CallbackInfoReturnable<Vec3d> cir) {
 		var block = getBlock();
-		if(block instanceof TallFlowerBlock || block.equals(Blocks.PITCHER_PLANT) && world.getBlockState(pos.down()).getBlock() instanceof DecoratedPotBlock || world.getBlockState(pos.down().down()).getBlock() instanceof DecoratedPotBlock) {
-			cir.setReturnValue(Vec3d.ZERO);
+		if(block instanceof BambooSaplingBlock || block instanceof TallPlantBlock || block instanceof TwistingVinesBlock || block.equals(Blocks.PITCHER_PLANT)) {
+			if(world.getBlockState(pos.down()).getBlock() instanceof DecoratedPotBlock || world.getBlockState(pos.down().down()).getBlock() instanceof DecoratedPotBlock) {
+				cir.setReturnValue(Vec3d.ZERO);
+			}
+		}
+		if(block instanceof BambooBlock) {
+			for (int i = 1; i <= 319; i++) {
+				if(world.getBlockState(pos.down(i)).getBlock() instanceof BambooBlock) {
+					continue;
+				}
+				if(world.getBlockState(pos.down(i)).getBlock() instanceof DecoratedPotBlock) {
+					cir.setReturnValue(Vec3d.ZERO);
+				}
+				else break;
+			}
 		}
 	}
 }
