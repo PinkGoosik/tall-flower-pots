@@ -4,11 +4,13 @@
   "package": "tallflowerpots.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "BlockStateMixin",
     "DecoratedPotMixin",
     "PlantBlockMixin",
     "PlantPartMixin",
     "SmallDripleafMixin"
+  ],
+  "client": [
+    "BlockStateMixin"
   ],
   "injectors": {
     "defaultRequire": 1
